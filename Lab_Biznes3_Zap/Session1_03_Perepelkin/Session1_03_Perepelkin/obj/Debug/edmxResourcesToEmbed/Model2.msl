@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Session1_03_PerepelkinModel1Container" CdmEntityContainer="Session1_03_PerepelkinEntities1">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Session1_03_PerepelkinModel1.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Role_of_user" ColumnName="Role_of_user" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password_of_user" ColumnName="Password_of_user" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

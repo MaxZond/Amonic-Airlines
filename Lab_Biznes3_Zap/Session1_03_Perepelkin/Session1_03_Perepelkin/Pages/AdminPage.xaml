@@ -1,0 +1,67 @@
+﻿<Page x:Class="Session1_03_Perepelkin.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AMONIC_Airlines_3"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage" IsVisibleChanged="Page_IsVisibleChanged" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="279*"/>
+            <ColumnDefinition Width="347*"/>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="266*"/>
+            <RowDefinition Height="66*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="White" Grid.ColumnSpan="7">
+            <Button x:Name="AddUserButton" Height="50" Content="Add User" Width="118" Margin="-650,0,0,-60" Cursor="Hand" Background="White" BorderBrush="White" Foreground="#FF0E0000" FontSize="20" Click="AddUserButton_Click" FontFamily="Verdana"/>
+            <Button x:Name="ExitButton" Height="50" Content="Exit" Width="128" Cursor="Hand" Background="White" BorderBrush="White" Foreground="#FF0E0000" FontSize="20" Margin="-380,0,0,-60" Click="AddUserButton_Copy_Click" FontFamily="Verdana"/>
+        </StackPanel>
+        <StackPanel Margin="0,0,0,2" Grid.ColumnSpan="4" Grid.Row="1">
+            <TextBlock x:Name="OfficeTB" Text="Office: " FontSize="25" Width="93" TextAlignment="Center" Margin="-280,0,-10,-50" Height="30" FontFamily="Tw Cen MT"/>
+            <ComboBox x:Name="OfficeComboBox" Height="30" SelectedIndex="0" Width="258" Margin="25,0,-100,-50" BorderBrush="White" SelectionChanged="OfficeComboBox_SelectionChanged" FontFamily="Tw Cen MT">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+        </StackPanel>
+        <DataGrid x:Name="UserGrid" AutoGenerateColumns="False" Margin="0,2,6,0" Grid.Row="2" IsReadOnly="True" GotFocus="UserGrid_GotFocus" Grid.ColumnSpan="3" Grid.Column="2" LoadingRow="UserGrid_LoadingRow" FontFamily="Verdana">
+            <DataGrid.Resources>
+                <local:ColorConverter x:Key="ColorConverter"/>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="{Binding User_Color, Converter={StaticResource ColorConverter}}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="110" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Width="110" Binding="{Binding Path=LastName}"/>
+                <DataGridTextColumn Header="Age" Width="50" Binding="{Binding Path=Age}"/>
+                <DataGridTextColumn Header="User Role" Binding="{Binding User_Role}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="EmailColumn" Header="Email Address" Width="150" Binding="{Binding Path=Email}"/>
+                <DataGridTextColumn Header="Offices" Width="*" Binding="{Binding Path=Title}"/>
+                <DataGridTextColumn Header="Active" Visibility="Hidden" Binding="{Binding Path=User_Color}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="ChangeRoleButton" Content="Change Role" HorizontalAlignment="Center" Margin="0,19,0,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Width="131" FontSize="20" Background="Black" BorderBrush="White" Foreground="White" Grid.Column="2" Click="ChangeRoleButton_Click" FontFamily="Verdana"/>
+        <Button x:Name="EnDisEnButton" Content="Enable/Disable Login" HorizontalAlignment="Left" Margin="34,19,0,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Width="214" FontSize="20" Background="Black" BorderBrush="White" Foreground="White" Grid.Column="3" Click="EnDisEnButton_Click" FontFamily="Verdana"/>
+        <StackPanel Margin="18,0,0,2" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3"/>
+
+    </Grid>
+</Page>
